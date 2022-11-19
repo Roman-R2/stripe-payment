@@ -3,3 +3,11 @@
 
 ### Python ###
 __pycache__/
+
+### VENV ###
+venv
+
+### ENV ###
+.env
+api/migrations/
+app/migrations/

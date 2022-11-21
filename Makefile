@@ -11,7 +11,7 @@ docker-build:
 # ----- Code section -----
 check-code:
 	isort api/ app/
-	flake8 --extend-ignore E501 api/ app/
+	flake8 --extend-ignore E501 api/ app/ web/
 
 # ----- Django section -----
 start: docker-up
@@ -23,4 +23,7 @@ migrate:
 
 superuser:
 	python manage.py createsuperuser --noinput
+
+load-fake-data:
+	python manage.py loaddata item
 

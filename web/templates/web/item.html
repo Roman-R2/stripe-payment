@@ -1,0 +1,53 @@
+{% extends "web/base.html" %}
+
+{% block title %}Item{% endblock title %}
+
+{% block style %}
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+{% endblock style %}
+
+{% block script %}
+<script src="https://js.stripe.com/v3/"></script>
+
+{% endblock script %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2>#{{item.pk}}: {{ item.name }}</h2>
+    <p><b>Описание:</b> {{item.description }}</p>
+    <p><b>Цена:</b> {{item.price }}</p>
+    <a href="#" class="button" id="buyButton">Buy</a>
+</div>
+
+<script>
+    var stripe = Stripe('{{ stripe_public_key }}');
+    let buyButton = document.querySelector("#buyButton");
+    console.log(buyButton)
+    buyButton.addEventListener('click', ({target}) => {
+            fetch('{{ request.scheme }}://{{request.get_host}}{% url "api:get_stripe_session_id" item.pk %}', {
+                method: 'GET',
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (session) {
+                    return stripe.redirectToCheckout({sessionId: session.id});
+                })
+                .then(function (result) {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                });
+        }
+    );
+</script>
+{% endblock content %}

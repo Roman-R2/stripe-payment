@@ -1,0 +1,17 @@
+{% extends "web/base.html" %}
+
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+<h2>Добро пожаловать в наш чудесный интернет-магазин.</h2>
+<hr>
+<p>В БД есть 3 товара:</p>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "api:get_stripe_session_id" 1 %}'>{% url "api:get_stripe_session_id" 1 %}</a></p>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "api:get_stripe_session_id" 2 %}'>{% url "api:get_stripe_session_id" 2 %}</a></p>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "api:get_stripe_session_id" 3 %}'>{% url "api:get_stripe_session_id" 3 %}</a></p>
+<hr>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 1 %}'>{% url "web:item_card" 1 %}</a></p>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 2 %}'>{% url "web:item_card" 2 %}</a></p>
+<p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 3 %}'>{% url "web:item_card" 3 %}</a></p>
+
+{% endblock content %}

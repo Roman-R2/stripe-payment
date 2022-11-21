@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # My apps
     'api.apps.ApiConfig',
+    'web.apps.WebConfig',
 
     # Third party apps
 

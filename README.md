@@ -36,9 +36,15 @@ make migrate
 make superuser
 ```
 
-7. Запустить dev сервер:
+7. Применить тестовые фикстуры:
+
 ```
-python manage.py runserver
+make load-fake-data
+```
+
+8. Запустить dev сервер:
+```
+make start-dev-server
 ```
 
 ## Автор

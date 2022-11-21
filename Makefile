@@ -14,7 +14,7 @@ check-code:
 	flake8 --extend-ignore E501 api/ app/ web/
 
 # ----- Django section -----
-start: docker-up
+start-dev-server: docker-up
 	python manage.py runserver
 
 migrate:

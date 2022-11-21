@@ -13,5 +13,15 @@
 <p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 1 %}'>{% url "web:item_card" 1 %}</a></p>
 <p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 2 %}'>{% url "web:item_card" 2 %}</a></p>
 <p><a href='{{ request.scheme }}://{{request.get_host}}{% url "web:item_card" 3 %}'>{% url "web:item_card" 3 %}</a></p>
-
+<hr>
+<p>реализованы бонусные задачи:</p>
+<ul>
+    <li>Запуск используя Docker</li>
+    <li>Использование environment variables</li>
+    <li>Просмотр Django Моделей в Django Admin панели</li>
+</ul>
+<hr>
+<p><a href='{{ request.scheme }}://{{request.get_host}}/admin'>Панель администратора</a></p>
+<p>login: admin</p>
+<p>password: 123</p>
 {% endblock content %}

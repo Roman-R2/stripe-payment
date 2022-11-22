@@ -2,6 +2,9 @@
 docker-up:
 	docker-compose up -d
 
+docker-build-up:
+	docker-compose up -d --build
+
 docker-down:
 	docker-compose down --remove-orphans
 
@@ -14,8 +17,13 @@ check-code:
 	flake8 --extend-ignore E501 api/ app/ web/
 
 # ----- Django section -----
+prepare-server: flush migrate superuser load-fake-data
+
 start-dev-server: docker-up
 	python manage.py runserver
+
+flush:
+	python manage.py flush --no-input
 
 migrate:
 	python manage.py makemigrations

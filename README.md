@@ -10,7 +10,7 @@
 * Docker
 * Утилита make
 
-## Установка
+## Dev запуск без docker
 
 1. Создать виртуальное окружение:
 
@@ -44,7 +44,19 @@ make load-fake-data
 
 8. Запустить dev сервер:
 ```
-make start-dev-server
+make start-simple-dev-server
+```
+
+## Dev запуск с docker
+
+1. Запустить команду:
+```
+make start-docker-dev-server
+```
+после этого сервер доступен на http://localhost:8000/
+чтобы остановить dev сервер выполните команду:
+```
+make docker-dev-down
 ```
 
 ## Автор

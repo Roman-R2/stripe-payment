@@ -9,8 +9,11 @@ venv
 
 ### ENV ###
 .env.dev
+.env.prod
+.env.prod.db
 
 ### Django ###
 api/migrations/
 web/migrations/
-temp.py
+
+
